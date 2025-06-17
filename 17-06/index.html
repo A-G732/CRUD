@@ -37,7 +37,7 @@
     <!-- Formulario -->
     <input type="text" id="nombre" placeholder="Nombre" class="w-full mb-2 p-2 border rounded" />
     <input type="number" id="edad" placeholder="Edad" class="w-full mb-4 p-2 border rounded" />
-    <button onclick="agregarDato()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-800">Guardar</button>
+    <button id="btnGuardar" onclick="agregarDato()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-800">Guardar</button>
 
     <!-- Tabla -->
     <table class="w-full mt-6 border-collapse">
@@ -55,35 +55,6 @@
     </table>
   </div>
 
-  <script>
-    let id = 1;
-
-    function agregarDato() {
-      const nombre = document.getElementById("nombre").value;
-      const edad = document.getElementById("edad").value;
-
-      if (!nombre || !edad) return;
-
-      const tabla = document.getElementById("tablaDatos");
-      const fila = document.createElement("tr");
-      fila.innerHTML = `
-        <td class="border px-4 py-2">${id}</td>
-        <td class="border px-4 py-2">${nombre}</td>
-        <td class="border px-4 py-2">${edad}</td>
-        <td class="border px-4 py-2">
-          <button onclick="eliminarFila(this)" class="bg-red-500 text-white px-2 py-1 rounded">Eliminar</button>
-        </td>
-      `;
-      tabla.appendChild(fila);
-      id++;
-
-      document.getElementById("nombre").value = "";
-      document.getElementById("edad").value = "";
-    }
-
-    function eliminarFila(boton) {
-      boton.parentElement.parentElement.remove();
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
